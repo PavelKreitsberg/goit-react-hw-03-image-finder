@@ -17,9 +17,15 @@ export class Modal extends React.Component {
     }
   };
 
+  handleBackdropClick = event => {
+    if (event.target.nodeName === 'DIV') {
+      this.props.closeModal();
+    }
+  };
+
   render() {
     return (
-      <div className={css.modal_backdrop}>
+      <div className={css.modal_backdrop} onClick={this.handleBackdropClick}>
         <img
           src={this.props.image}
           className={css.modal_image}
